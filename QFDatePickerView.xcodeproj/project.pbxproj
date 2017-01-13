@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB39514D1E288B8E000EBDD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39514C1E288B8E000EBDD6 /* main.m */; };
+		BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39514F1E288B8E000EBDD6 /* AppDelegate.m */; };
+		BB3951531E288B8E000EBDD6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951521E288B8E000EBDD6 /* ViewController.m */; };
+		BB3951561E288B8E000EBDD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3951541E288B8E000EBDD6 /* Main.storyboard */; };
+		BB3951581E288B8E000EBDD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB3951571E288B8E000EBDD6 /* Assets.xcassets */; };
+		BB39515B1E288B8E000EBDD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3951591E288B8E000EBDD6 /* LaunchScreen.storyboard */; };
+		BB3951661E288B8F000EBDD6 /* QFDatePickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951651E288B8F000EBDD6 /* QFDatePickerViewTests.m */; };
+		BB3951711E288B8F000EBDD6 /* QFDatePickerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951701E288B8F000EBDD6 /* QFDatePickerViewUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB3951621E288B8F000EBDD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB3951401E288B8E000EBDD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB3951471E288B8E000EBDD6;
+			remoteInfo = QFDatePickerView;
+		};
+		BB39516D1E288B8F000EBDD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB3951401E288B8E000EBDD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB3951471E288B8E000EBDD6;
+			remoteInfo = QFDatePickerView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB3951481E288B8E000EBDD6 /* QFDatePickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFDatePickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB39514C1E288B8E000EBDD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB39514E1E288B8E000EBDD6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB39514F1E288B8E000EBDD6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB3951511E288B8E000EBDD6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BB3951521E288B8E000EBDD6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB3951551E288B8E000EBDD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB3951571E288B8E000EBDD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB39515A1E288B8E000EBDD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB39515C1E288B8E000EBDD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB3951611E288B8F000EBDD6 /* QFDatePickerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QFDatePickerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB3951651E288B8F000EBDD6 /* QFDatePickerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFDatePickerViewTests.m; sourceTree = "<group>"; };
+		BB3951671E288B8F000EBDD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB39516C1E288B8F000EBDD6 /* QFDatePickerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QFDatePickerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB3951701E288B8F000EBDD6 /* QFDatePickerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFDatePickerViewUITests.m; sourceTree = "<group>"; };
+		BB3951721E288B8F000EBDD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB3951451E288B8E000EBDD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB39515E1E288B8F000EBDD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3951691E288B8F000EBDD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB39513F1E288B8E000EBDD6 = {
+			isa = PBXGroup;
+			children = (
+				BB39514A1E288B8E000EBDD6 /* QFDatePickerView */,
+				BB3951641E288B8F000EBDD6 /* QFDatePickerViewTests */,
+				BB39516F1E288B8F000EBDD6 /* QFDatePickerViewUITests */,
+				BB3951491E288B8E000EBDD6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB3951491E288B8E000EBDD6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB3951481E288B8E000EBDD6 /* QFDatePickerView.app */,
+				BB3951611E288B8F000EBDD6 /* QFDatePickerViewTests.xctest */,
+				BB39516C1E288B8F000EBDD6 /* QFDatePickerViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB39514A1E288B8E000EBDD6 /* QFDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				BB39514E1E288B8E000EBDD6 /* AppDelegate.h */,
+				BB39514F1E288B8E000EBDD6 /* AppDelegate.m */,
+				BB3951511E288B8E000EBDD6 /* ViewController.h */,
+				BB3951521E288B8E000EBDD6 /* ViewController.m */,
+				BB3951541E288B8E000EBDD6 /* Main.storyboard */,
+				BB3951571E288B8E000EBDD6 /* Assets.xcassets */,
+				BB3951591E288B8E000EBDD6 /* LaunchScreen.storyboard */,
+				BB39515C1E288B8E000EBDD6 /* Info.plist */,
+				BB39514B1E288B8E000EBDD6 /* Supporting Files */,
+			);
+			path = QFDatePickerView;
+			sourceTree = "<group>";
+		};
+		BB39514B1E288B8E000EBDD6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB39514C1E288B8E000EBDD6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB3951641E288B8F000EBDD6 /* QFDatePickerViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB3951651E288B8F000EBDD6 /* QFDatePickerViewTests.m */,
+				BB3951671E288B8F000EBDD6 /* Info.plist */,
+			);
+			path = QFDatePickerViewTests;
+			sourceTree = "<group>";
+		};
+		BB39516F1E288B8F000EBDD6 /* QFDatePickerViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BB3951701E288B8F000EBDD6 /* QFDatePickerViewUITests.m */,
+				BB3951721E288B8F000EBDD6 /* Info.plist */,
+			);
+			path = QFDatePickerViewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB3951471E288B8E000EBDD6 /* QFDatePickerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB3951751E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerView" */;
+			buildPhases = (
+				BB3951441E288B8E000EBDD6 /* Sources */,
+				BB3951451E288B8E000EBDD6 /* Frameworks */,
+				BB3951461E288B8E000EBDD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QFDatePickerView;
+			productName = QFDatePickerView;
+			productReference = BB3951481E288B8E000EBDD6 /* QFDatePickerView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB3951601E288B8F000EBDD6 /* QFDatePickerViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB3951781E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerViewTests" */;
+			buildPhases = (
+				BB39515D1E288B8F000EBDD6 /* Sources */,
+				BB39515E1E288B8F000EBDD6 /* Frameworks */,
+				BB39515F1E288B8F000EBDD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB3951631E288B8F000EBDD6 /* PBXTargetDependency */,
+			);
+			name = QFDatePickerViewTests;
+			productName = QFDatePickerViewTests;
+			productReference = BB3951611E288B8F000EBDD6 /* QFDatePickerViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BB39516B1E288B8F000EBDD6 /* QFDatePickerViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB39517B1E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerViewUITests" */;
+			buildPhases = (
+				BB3951681E288B8F000EBDD6 /* Sources */,
+				BB3951691E288B8F000EBDD6 /* Frameworks */,
+				BB39516A1E288B8F000EBDD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB39516E1E288B8F000EBDD6 /* PBXTargetDependency */,
+			);
+			name = QFDatePickerViewUITests;
+			productName = QFDatePickerViewUITests;
+			productReference = BB39516C1E288B8F000EBDD6 /* QFDatePickerViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB3951401E288B8E000EBDD6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "情风";
+				TargetAttributes = {
+					BB3951471E288B8E000EBDD6 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+					BB3951601E288B8F000EBDD6 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BB3951471E288B8E000EBDD6;
+					};
+					BB39516B1E288B8F000EBDD6 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BB3951471E288B8E000EBDD6;
+					};
+				};
+			};
+			buildConfigurationList = BB3951431E288B8E000EBDD6 /* Build configuration list for PBXProject "QFDatePickerView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB39513F1E288B8E000EBDD6;
+			productRefGroup = BB3951491E288B8E000EBDD6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB3951471E288B8E000EBDD6 /* QFDatePickerView */,
+				BB3951601E288B8F000EBDD6 /* QFDatePickerViewTests */,
+				BB39516B1E288B8F000EBDD6 /* QFDatePickerViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB3951461E288B8E000EBDD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB39515B1E288B8E000EBDD6 /* LaunchScreen.storyboard in Resources */,
+				BB3951581E288B8E000EBDD6 /* Assets.xcassets in Resources */,
+				BB3951561E288B8E000EBDD6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB39515F1E288B8F000EBDD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB39516A1E288B8F000EBDD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB3951441E288B8E000EBDD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB3951531E288B8E000EBDD6 /* ViewController.m in Sources */,
+				BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */,
+				BB39514D1E288B8E000EBDD6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB39515D1E288B8F000EBDD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB3951661E288B8F000EBDD6 /* QFDatePickerViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3951681E288B8F000EBDD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB3951711E288B8F000EBDD6 /* QFDatePickerViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB3951631E288B8F000EBDD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB3951471E288B8E000EBDD6 /* QFDatePickerView */;
+			targetProxy = BB3951621E288B8F000EBDD6 /* PBXContainerItemProxy */;
+		};
+		BB39516E1E288B8F000EBDD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB3951471E288B8E000EBDD6 /* QFDatePickerView */;
+			targetProxy = BB39516D1E288B8F000EBDD6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB3951541E288B8E000EBDD6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB3951551E288B8E000EBDD6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB3951591E288B8E000EBDD6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB39515A1E288B8E000EBDD6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB3951731E288B8F000EBDD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BB3951741E288B8F000EBDD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB3951761E288B8F000EBDD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QFDatePickerView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JXT.QFDatePickerView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BB3951771E288B8F000EBDD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QFDatePickerView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JXT.QFDatePickerView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BB3951791E288B8F000EBDD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = QFDatePickerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JXT.QFDatePickerViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QFDatePickerView.app/QFDatePickerView";
+			};
+			name = Debug;
+		};
+		BB39517A1E288B8F000EBDD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = QFDatePickerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JXT.QFDatePickerViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QFDatePickerView.app/QFDatePickerView";
+			};
+			name = Release;
+		};
+		BB39517C1E288B8F000EBDD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = QFDatePickerViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JXT.QFDatePickerViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = QFDatePickerView;
+			};
+			name = Debug;
+		};
+		BB39517D1E288B8F000EBDD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = QFDatePickerViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JXT.QFDatePickerViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = QFDatePickerView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB3951431E288B8E000EBDD6 /* Build configuration list for PBXProject "QFDatePickerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3951731E288B8F000EBDD6 /* Debug */,
+				BB3951741E288B8F000EBDD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB3951751E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3951761E288B8F000EBDD6 /* Debug */,
+				BB3951771E288B8F000EBDD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB3951781E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB3951791E288B8F000EBDD6 /* Debug */,
+				BB39517A1E288B8F000EBDD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB39517B1E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB39517C1E288B8F000EBDD6 /* Debug */,
+				BB39517D1E288B8F000EBDD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB3951401E288B8E000EBDD6 /* Project object */;
+}
