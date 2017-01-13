@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		BB39514D1E288B8E000EBDD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39514C1E288B8E000EBDD6 /* main.m */; };
 		BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39514F1E288B8E000EBDD6 /* AppDelegate.m */; };
-		BB3951531E288B8E000EBDD6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951521E288B8E000EBDD6 /* ViewController.m */; };
-		BB3951561E288B8E000EBDD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3951541E288B8E000EBDD6 /* Main.storyboard */; };
 		BB3951581E288B8E000EBDD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB3951571E288B8E000EBDD6 /* Assets.xcassets */; };
 		BB39515B1E288B8E000EBDD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3951591E288B8E000EBDD6 /* LaunchScreen.storyboard */; };
 		BB3951661E288B8F000EBDD6 /* QFDatePickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951651E288B8F000EBDD6 /* QFDatePickerViewTests.m */; };
 		BB3951711E288B8F000EBDD6 /* QFDatePickerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951701E288B8F000EBDD6 /* QFDatePickerViewUITests.m */; };
+		BB39517F1E288B9C000EBDD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB39517E1E288B9C000EBDD6 /* Main.storyboard */; };
+		BB3951821E288BAB000EBDD6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951811E288BAB000EBDD6 /* ViewController.m */; };
+		BB3951861E288BDA000EBDD6 /* QFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +40,6 @@
 		BB39514C1E288B8E000EBDD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB39514E1E288B8E000EBDD6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB39514F1E288B8E000EBDD6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BB3951511E288B8E000EBDD6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BB3951521E288B8E000EBDD6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		BB3951551E288B8E000EBDD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB3951571E288B8E000EBDD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB39515A1E288B8E000EBDD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB39515C1E288B8E000EBDD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +49,11 @@
 		BB39516C1E288B8F000EBDD6 /* QFDatePickerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QFDatePickerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3951701E288B8F000EBDD6 /* QFDatePickerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFDatePickerViewUITests.m; sourceTree = "<group>"; };
 		BB3951721E288B8F000EBDD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB39517E1E288B9C000EBDD6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BB3951801E288BAB000EBDD6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BB3951811E288BAB000EBDD6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB3951841E288BDA000EBDD6 /* QFDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFDatePickerView.h; sourceTree = "<group>"; };
+		BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFDatePickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +104,12 @@
 		BB39514A1E288B8E000EBDD6 /* QFDatePickerView */ = {
 			isa = PBXGroup;
 			children = (
+				BB3951831E288BDA000EBDD6 /* QFDatePickerView */,
 				BB39514E1E288B8E000EBDD6 /* AppDelegate.h */,
 				BB39514F1E288B8E000EBDD6 /* AppDelegate.m */,
-				BB3951511E288B8E000EBDD6 /* ViewController.h */,
-				BB3951521E288B8E000EBDD6 /* ViewController.m */,
-				BB3951541E288B8E000EBDD6 /* Main.storyboard */,
+				BB3951801E288BAB000EBDD6 /* ViewController.h */,
+				BB3951811E288BAB000EBDD6 /* ViewController.m */,
+				BB39517E1E288B9C000EBDD6 /* Main.storyboard */,
 				BB3951571E288B8E000EBDD6 /* Assets.xcassets */,
 				BB3951591E288B8E000EBDD6 /* LaunchScreen.storyboard */,
 				BB39515C1E288B8E000EBDD6 /* Info.plist */,
@@ -138,6 +142,15 @@
 				BB3951721E288B8F000EBDD6 /* Info.plist */,
 			);
 			path = QFDatePickerViewUITests;
+			sourceTree = "<group>";
+		};
+		BB3951831E288BDA000EBDD6 /* QFDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				BB3951841E288BDA000EBDD6 /* QFDatePickerView.h */,
+				BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */,
+			);
+			path = QFDatePickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB39517F1E288B9C000EBDD6 /* Main.storyboard in Resources */,
 				BB39515B1E288B8E000EBDD6 /* LaunchScreen.storyboard in Resources */,
 				BB3951581E288B8E000EBDD6 /* Assets.xcassets in Resources */,
-				BB3951561E288B8E000EBDD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB3951531E288B8E000EBDD6 /* ViewController.m in Sources */,
+				BB3951821E288BAB000EBDD6 /* ViewController.m in Sources */,
 				BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */,
 				BB39514D1E288B8E000EBDD6 /* main.m in Sources */,
+				BB3951861E288BDA000EBDD6 /* QFDatePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,14 +325,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BB3951541E288B8E000EBDD6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB3951551E288B8E000EBDD6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB3951591E288B8E000EBDD6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
