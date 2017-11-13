@@ -58,15 +58,15 @@
     //初始化年数据源数组
     yearArray = [[NSMutableArray alloc]init];
     for (NSInteger i = 1970; i <= currentYear ; i++) {
-        NSString *yearStr = [NSString stringWithFormat:@"%ld年",i];
+        NSString *yearStr = [NSString stringWithFormat:@"%ld年",(long)i];
         [yearArray addObject:yearStr];
     }
     [yearArray addObject:@"至今"];
     
     //初始化月数据源数组
     monthArray = [[NSMutableArray alloc]init];
-    for (NSInteger i = 1 ; i <= 12; i++) {
-        NSString *monthStr = [NSString stringWithFormat:@"%ld月",i];
+    for (NSInteger i = 1 ; i <= currentMonth; i++) {
+        NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
         [monthArray addObject:monthStr];
     }
     
@@ -170,8 +170,8 @@
             selectecMonth = @"";
         } else {//非至今的情况下,显示月份
             monthArray = [[NSMutableArray alloc]init];
-            for (NSInteger i = 1 ; i <= 12; i++) {
-                NSString *monthStr = [NSString stringWithFormat:@"%ld月",i];
+            for (NSInteger i = 1 ; i <= currentMonth; i++) {
+                NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
                 [monthArray addObject:monthStr];
             }
             selectecMonth = [NSString stringWithFormat:@"%ld",(long)currentMonth];
