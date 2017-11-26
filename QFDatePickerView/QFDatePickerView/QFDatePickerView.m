@@ -124,8 +124,7 @@
 
 #pragma mark - pickerView出现
 - (void)show {
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    [app.window addSubview:self];
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
     [UIView animateWithDuration:0.4 animations:^{
         contentView.center = CGPointMake(self.frame.size.width/2, contentView.center.y - contentView.frame.size.height);
     }];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851DDD7E1FBA935F007C1E1F /* QFTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 851DDD7D1FBA935F007C1E1F /* QFTimePickerView.m */; };
 		BB39514D1E288B8E000EBDD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39514C1E288B8E000EBDD6 /* main.m */; };
 		BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39514F1E288B8E000EBDD6 /* AppDelegate.m */; };
 		BB3951581E288B8E000EBDD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB3951571E288B8E000EBDD6 /* Assets.xcassets */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		851DDD7C1FBA935F007C1E1F /* QFTimePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QFTimePickerView.h; sourceTree = "<group>"; };
+		851DDD7D1FBA935F007C1E1F /* QFTimePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFTimePickerView.m; sourceTree = "<group>"; };
 		BB3951481E288B8E000EBDD6 /* QFDatePickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFDatePickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB39514C1E288B8E000EBDD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB39514E1E288B8E000EBDD6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851DDD7B1FBA9334007C1E1F /* QFTimePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				851DDD7C1FBA935F007C1E1F /* QFTimePickerView.h */,
+				851DDD7D1FBA935F007C1E1F /* QFTimePickerView.m */,
+			);
+			path = QFTimePickerView;
+			sourceTree = "<group>";
+		};
 		BB39513F1E288B8E000EBDD6 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +116,7 @@
 		BB39514A1E288B8E000EBDD6 /* QFDatePickerView */ = {
 			isa = PBXGroup;
 			children = (
+				851DDD7B1FBA9334007C1E1F /* QFTimePickerView */,
 				BB3951831E288BDA000EBDD6 /* QFDatePickerView */,
 				BB39514E1E288B8E000EBDD6 /* AppDelegate.h */,
 				BB39514F1E288B8E000EBDD6 /* AppDelegate.m */,
@@ -286,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851DDD7E1FBA935F007C1E1F /* QFTimePickerView.m in Sources */,
 				BB3951821E288BAB000EBDD6 /* ViewController.m in Sources */,
 				BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */,
 				BB39514D1E288B8E000EBDD6 /* main.m in Sources */,
@@ -511,6 +525,7 @@
 				BB3951771E288B8F000EBDD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB3951781E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerViewTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +534,7 @@
 				BB39517A1E288B8F000EBDD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB39517B1E288B8F000EBDD6 /* Build configuration list for PBXNativeTarget "QFDatePickerViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +543,7 @@
 				BB39517D1E288B8F000EBDD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
