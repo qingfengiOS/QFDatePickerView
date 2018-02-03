@@ -67,28 +67,12 @@
     return self;
 }
 
-#pragma mark - ConfigurationUI
+#pragma mark - Configuration
 - (void)setViewInterface {
-    //获取当前时间 （时间格式支持自定义）
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM"];//自定义时间格式
-    NSString *currentDateStr = [formatter stringFromDate:[NSDate date]];
-    //拆分年月成数组
-    NSArray *dateArray = [currentDateStr componentsSeparatedByString:@"-"];
-    if (dateArray.count == 2) {//年 月
-        currentYear = [[dateArray firstObject]integerValue];
-        currentMonth =  [dateArray[1] integerValue];
-    }
-    selectedYear = [NSString stringWithFormat:@"%ld",(long)currentYear];
-    selectecMonth = [NSString stringWithFormat:@"%ld",(long)currentMonth];
     
-    //初始化年数据源数组
-    yearArray = [[NSMutableArray alloc]init];
-    for (NSInteger i = 1970; i <= currentYear ; i++) {
-        NSString *yearStr = [NSString stringWithFormat:@"%ld年",(long)i];
-        [yearArray addObject:yearStr];
-    }
-    [yearArray addObject:@"至今"];
+    [self getCurrentDate];
+    
+    [self setYearArray];
     
     [self setMonthArray];
     
@@ -128,6 +112,31 @@
     [contentView addSubview:pickerView];
 }
 
+- (void)getCurrentDate {
+    //获取当前时间 （时间格式支持自定义）
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM"];//自定义时间格式
+    NSString *currentDateStr = [formatter stringFromDate:[NSDate date]];
+    //拆分年月成数组
+    NSArray *dateArray = [currentDateStr componentsSeparatedByString:@"-"];
+    if (dateArray.count == 2) {//年 月
+        currentYear = [[dateArray firstObject]integerValue];
+        currentMonth =  [dateArray[1] integerValue];
+    }
+    selectedYear = [NSString stringWithFormat:@"%ld",(long)currentYear];
+    selectecMonth = [NSString stringWithFormat:@"%ld",(long)currentMonth];
+}
+
+- (void)setYearArray {
+    //初始化年数据源数组
+    yearArray = [[NSMutableArray alloc]init];
+    for (NSInteger i = 1970; i <= currentYear ; i++) {
+        NSString *yearStr = [NSString stringWithFormat:@"%ld年",(long)i];
+        [yearArray addObject:yearStr];
+    }
+    [yearArray addObject:@"至今"];
+}
+
 - (void)setMonthArray {
     //初始化月数据源数组
     monthArray = [[NSMutableArray alloc]init];
@@ -143,7 +152,6 @@
             [monthArray addObject:monthStr];
         }
     }
-    
 }
 
 #pragma mark - Actions
@@ -227,7 +235,7 @@
     } else {
         if (component == 0) {
             selectedYear = yearArray[row];
-            if (row == yearArray.count - 1) {//至今的情况下,月份清空
+            if ([selectedYear isEqualToString:@"至今"]) {//至今的情况下,月份清空
                 [monthArray removeAllObjects];
                 selectecMonth = @"";
             } else {//非至今的情况下,显示月份
