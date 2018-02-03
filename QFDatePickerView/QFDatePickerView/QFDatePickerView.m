@@ -21,6 +21,8 @@
     
     NSString *selectedYear;
     NSString *selectecMonth;
+    
+    BOOL onlySelectYear;
 }
 
 
@@ -29,6 +31,12 @@
 @implementation QFDatePickerView
 
 #pragma mark - initDatePickerView
+/**
+ 初始化方法，只带年月的日期选择
+ 
+ @param block 返回选中的日期
+ @return QFDatePickerView对象
+ */
 - (instancetype)initDatePackerWithResponse:(void (^)(NSString *))block{
     if (self = [super init]) {
         self.frame = [UIScreen mainScreen].bounds;
@@ -37,6 +45,25 @@
     if (block) {
         backBlock = block;
     }
+    onlySelectYear = NO;
+    return self;
+}
+
+/**
+ 初始化方法，只带年份的日期选择
+ 
+ @param block 返回选中的年份
+ @return QFDatePickerView对象
+ */
+- (instancetype)initYearPickerViewWithResponse:(void(^)(NSString*))block {
+    if (self = [super init]) {
+        self.frame = [UIScreen mainScreen].bounds;
+    }
+    [self setViewInterface];
+    if (block) {
+        backBlock = block;
+    }
+    onlySelectYear = YES;
     return self;
 }
 
@@ -63,12 +90,7 @@
     }
     [yearArray addObject:@"至今"];
     
-    //初始化月数据源数组
-    monthArray = [[NSMutableArray alloc]init];
-    for (NSInteger i = 1 ; i <= currentMonth; i++) {
-        NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
-        [monthArray addObject:monthStr];
-    }
+    [self setMonthArray];
     
     contentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, self.frame.size.width, 300)];
     [self addSubview:contentView];
@@ -99,9 +121,29 @@
     
     //设置pickerView默认选中当前时间
     [pickerView selectRow:[selectedYear integerValue] - 1970 inComponent:0 animated:YES];
-    [pickerView selectRow:[selectecMonth integerValue] - 1 inComponent:1 animated:YES];
+    if (!onlySelectYear) {
+        [pickerView selectRow:[selectecMonth integerValue] - 1 inComponent:1 animated:YES];
+    }
     
     [contentView addSubview:pickerView];
+}
+
+- (void)setMonthArray {
+    //初始化月数据源数组
+    monthArray = [[NSMutableArray alloc]init];
+    
+    if ([[selectedYear substringWithRange:NSMakeRange(0, 4)] isEqualToString:[NSString stringWithFormat:@"%ld",currentYear]]) {
+        for (NSInteger i = 1 ; i <= currentMonth; i++) {
+            NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
+            [monthArray addObject:monthStr];
+        }
+    } else {
+        for (NSInteger i = 1 ; i <= 12; i++) {
+            NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
+            [monthArray addObject:monthStr];
+        }
+    }
+    
 }
 
 #pragma mark - Actions
@@ -109,14 +151,18 @@
     if (sender.tag == 10) {
         [self dismiss];
     } else {
-        if ([selectecMonth isEqualToString:@""]) {//至今的情况下 不需要中间-
-            restr = [NSString stringWithFormat:@"%@%@",selectedYear,selectecMonth];
+        if (onlySelectYear) {
+            restr = [selectedYear stringByReplacingOccurrencesOfString:@"年" withString:@""];
         } else {
-            restr = [NSString stringWithFormat:@"%@-%@",selectedYear,selectecMonth];
+            if ([selectecMonth isEqualToString:@""]) {//至今的情况下 不需要中间-
+                restr = [NSString stringWithFormat:@"%@%@",selectedYear,selectecMonth];
+            } else {
+                restr = [NSString stringWithFormat:@"%@-%@",selectedYear,selectecMonth];
+            }
+            
+            restr = [restr stringByReplacingOccurrencesOfString:@"年" withString:@""];
+            restr = [restr stringByReplacingOccurrencesOfString:@"月" withString:@""];
         }
-        
-        restr = [restr stringByReplacingOccurrencesOfString:@"年" withString:@""];
-        restr = [restr stringByReplacingOccurrencesOfString:@"月" withString:@""];
         backBlock(restr);
         [self dismiss];
     }
@@ -141,44 +187,58 @@
 
 #pragma mark - UIPickerViewDataSource UIPickerViewDelegate
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 2;
+    if (onlySelectYear) {//只选择年
+        return 1;
+    } else {
+        return 2;
+    }
+    
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if (component == 0) {
+    if (onlySelectYear) {//只选择年
         return yearArray.count;
+    } else {
+        if (component == 0) {
+            return yearArray.count;
+        } else {
+            return monthArray.count;
+        }
     }
-    else {
-        return monthArray.count;
-    }
+    return 0;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (component == 0) {
+    if (onlySelectYear) {//只选择年
         return yearArray[row];
     } else {
-        return monthArray[row];
+        if (component == 0) {
+            return yearArray[row];
+        } else {
+            return monthArray[row];
+        }
     }
+    return @"";
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    if (component == 0) {
+    if (onlySelectYear) {//只选择年
         selectedYear = yearArray[row];
-        if (row == yearArray.count - 1) {//至今的情况下,月份清空
-            [monthArray removeAllObjects];
-            selectecMonth = @"";
-        } else {//非至今的情况下,显示月份
-            monthArray = [[NSMutableArray alloc]init];
-            for (NSInteger i = 1 ; i <= currentMonth; i++) {
-                NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
-                [monthArray addObject:monthStr];
-            }
-            selectecMonth = [NSString stringWithFormat:@"%ld",(long)currentMonth];
-        }
-        [pickerView reloadComponent:1];
-        
     } else {
-        selectecMonth = monthArray[row];
+        if (component == 0) {
+            selectedYear = yearArray[row];
+            if (row == yearArray.count - 1) {//至今的情况下,月份清空
+                [monthArray removeAllObjects];
+                selectecMonth = @"";
+            } else {//非至今的情况下,显示月份
+                [self setMonthArray];
+                selectecMonth = [NSString stringWithFormat:@"%ld",(long)currentMonth];
+            }
+            [pickerView reloadComponent:1];
+            
+        } else {
+            selectecMonth = monthArray[row];
+        }
     }
 }
 
