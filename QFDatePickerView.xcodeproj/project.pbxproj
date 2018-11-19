@@ -204,8 +204,8 @@
 		FD3907E821A29BB900A215CD /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
-				FD3907E921A29BB900A215CD /* QFTimerUtil.m */,
 				FD3907EA21A29BB900A215CD /* QFTimerUtil.h */,
+				FD3907E921A29BB900A215CD /* QFTimerUtil.m */,
 			);
 			path = Uitils;
 			sourceTree = "<group>";
