@@ -10,6 +10,7 @@
 
 #import "QFDatePickerView.h"
 #import "QFTimePickerView.h"
+#import "QFTimerPicker.h"
 
 @interface ViewController ()
 
@@ -48,4 +49,13 @@
     [pickerView show];
 }
 
+- (IBAction)chooseDate:(UIButton *)sender {
+    QFTimerPicker *picker = [[QFTimerPicker alloc]initWithSuperView:self.view response:^(NSString *selectedStr) {
+        NSLog(@"%@",selectedStr);
+        [sender setTitle:selectedStr forState:UIControlStateNormal];
+        
+    }];
+    
+    [picker show];
+}
 @end

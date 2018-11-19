@@ -17,6 +17,11 @@
 		BB39517F1E288B9C000EBDD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB39517E1E288B9C000EBDD6 /* Main.storyboard */; };
 		BB3951821E288BAB000EBDD6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951811E288BAB000EBDD6 /* ViewController.m */; };
 		BB3951861E288BDA000EBDD6 /* QFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */; };
+		FD3907F221A29BB900A215CD /* QFTimerPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907E721A29BB900A215CD /* QFTimerPicker.m */; };
+		FD3907F321A29BB900A215CD /* QFTimerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907E921A29BB900A215CD /* QFTimerUtil.m */; };
+		FD3907F421A29BB900A215CD /* QFMinuteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907EF21A29BB900A215CD /* QFMinuteModel.m */; };
+		FD3907F521A29BB900A215CD /* QFHourModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907F021A29BB900A215CD /* QFHourModel.m */; };
+		FD3907F621A29BB900A215CD /* QFDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907F121A29BB900A215CD /* QFDateModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,16 @@
 		BB3951811E288BAB000EBDD6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB3951841E288BDA000EBDD6 /* QFDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFDatePickerView.h; sourceTree = "<group>"; };
 		BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFDatePickerView.m; sourceTree = "<group>"; };
+		FD3907E621A29BB900A215CD /* QFTimerPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFTimerPicker.h; sourceTree = "<group>"; };
+		FD3907E721A29BB900A215CD /* QFTimerPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFTimerPicker.m; sourceTree = "<group>"; };
+		FD3907E921A29BB900A215CD /* QFTimerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFTimerUtil.m; sourceTree = "<group>"; };
+		FD3907EA21A29BB900A215CD /* QFTimerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFTimerUtil.h; sourceTree = "<group>"; };
+		FD3907EC21A29BB900A215CD /* QFDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFDateModel.h; sourceTree = "<group>"; };
+		FD3907ED21A29BB900A215CD /* QFHourModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFHourModel.h; sourceTree = "<group>"; };
+		FD3907EE21A29BB900A215CD /* QFMinuteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFMinuteModel.h; sourceTree = "<group>"; };
+		FD3907EF21A29BB900A215CD /* QFMinuteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFMinuteModel.m; sourceTree = "<group>"; };
+		FD3907F021A29BB900A215CD /* QFHourModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFHourModel.m; sourceTree = "<group>"; };
+		FD3907F121A29BB900A215CD /* QFDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFDateModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +131,7 @@
 		BB39514A1E288B8E000EBDD6 /* QFDatePickerView */ = {
 			isa = PBXGroup;
 			children = (
+				FD3907E421A29BB900A215CD /* QFTimerPicker */,
 				851DDD7B1FBA9334007C1E1F /* QFTimePickerView */,
 				BB3951831E288BDA000EBDD6 /* QFDatePickerView */,
 				BB39514E1E288B8E000EBDD6 /* AppDelegate.h */,
@@ -164,6 +180,47 @@
 				BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */,
 			);
 			path = QFDatePickerView;
+			sourceTree = "<group>";
+		};
+		FD3907E421A29BB900A215CD /* QFTimerPicker */ = {
+			isa = PBXGroup;
+			children = (
+				FD3907E521A29BB900A215CD /* QFTimerPicker */,
+				FD3907E821A29BB900A215CD /* Uitils */,
+				FD3907EB21A29BB900A215CD /* Model */,
+			);
+			path = QFTimerPicker;
+			sourceTree = "<group>";
+		};
+		FD3907E521A29BB900A215CD /* QFTimerPicker */ = {
+			isa = PBXGroup;
+			children = (
+				FD3907E621A29BB900A215CD /* QFTimerPicker.h */,
+				FD3907E721A29BB900A215CD /* QFTimerPicker.m */,
+			);
+			path = QFTimerPicker;
+			sourceTree = "<group>";
+		};
+		FD3907E821A29BB900A215CD /* Uitils */ = {
+			isa = PBXGroup;
+			children = (
+				FD3907E921A29BB900A215CD /* QFTimerUtil.m */,
+				FD3907EA21A29BB900A215CD /* QFTimerUtil.h */,
+			);
+			path = Uitils;
+			sourceTree = "<group>";
+		};
+		FD3907EB21A29BB900A215CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD3907EC21A29BB900A215CD /* QFDateModel.h */,
+				FD3907ED21A29BB900A215CD /* QFHourModel.h */,
+				FD3907EE21A29BB900A215CD /* QFMinuteModel.h */,
+				FD3907EF21A29BB900A215CD /* QFMinuteModel.m */,
+				FD3907F021A29BB900A215CD /* QFHourModel.m */,
+				FD3907F121A29BB900A215CD /* QFDateModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +358,12 @@
 			files = (
 				851DDD7E1FBA935F007C1E1F /* QFTimePickerView.m in Sources */,
 				BB3951821E288BAB000EBDD6 /* ViewController.m in Sources */,
+				FD3907F221A29BB900A215CD /* QFTimerPicker.m in Sources */,
 				BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */,
+				FD3907F621A29BB900A215CD /* QFDateModel.m in Sources */,
+				FD3907F521A29BB900A215CD /* QFHourModel.m in Sources */,
+				FD3907F421A29BB900A215CD /* QFMinuteModel.m in Sources */,
+				FD3907F321A29BB900A215CD /* QFTimerUtil.m in Sources */,
 				BB39514D1E288B8E000EBDD6 /* main.m in Sources */,
 				BB3951861E288BDA000EBDD6 /* QFDatePickerView.m in Sources */,
 			);
