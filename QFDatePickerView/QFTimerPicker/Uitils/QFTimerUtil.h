@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class QFTimerDataSourceModel;
 
 @interface QFTimerUtil : NSObject
 
++ (QFTimerDataSourceModel *)configDataSource ;
 
 /**
  获取日期数据源
@@ -34,4 +36,6 @@
  @return 分钟数据源
  */
 + (NSMutableArray *)minuteArrayByToady:(BOOL)isToday selectedHour:(NSString *)selectedHour;
+
+
 @end

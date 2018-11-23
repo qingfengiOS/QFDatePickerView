@@ -8,9 +8,10 @@
 
 #import "QFTimerPicker.h"
 #import "QFTimerUtil.h"
+#import "QFTimerDataSourceModel.h"
 #import "QFDateModel.h"
-#import "QFMinuteModel.h"
 #import "QFHourModel.h"
+#import "QFMinuteModel.h"
 
 @interface QFTimerPicker ()<UIPickerViewDataSource,UIPickerViewDelegate>
 
@@ -23,15 +24,6 @@
 /// 回调Block
 @property (nonatomic, copy) ReturnBlock returnBlock;
 
-/// 日期数据源
-@property (nonatomic, strong) NSMutableArray <QFDateModel *>*dateArray;
-
-/// 小时数据源
-@property (nonatomic, strong) NSMutableArray <QFHourModel *>*hourArray;
-
-/// 分钟数据源
-@property (nonatomic, strong) NSMutableArray <QFMinuteModel *>*minuteArray;
-
 /// 选中的日期下标
 @property (nonatomic, assign) NSInteger selectedDateIndex;
 
@@ -40,6 +32,8 @@
 
 /// 选中的分钟下标
 @property (nonatomic, assign) NSInteger selectedMinuteIndex;
+
+@property (nonatomic, strong)  QFTimerDataSourceModel *dataSourceModel;
 
 @end
 
@@ -155,16 +149,23 @@
         [self dismiss];
     } else {//确定
         if (self.returnBlock) {
-            QFDateModel *dateModel = self.dateArray[self.selectedDateIndex];
-            NSString *date = [dateModel.dateString substringToIndex:10];
+            QFDateModel *dateModel = self.dataSourceModel.dateArray[self.selectedDateIndex];
+        
+            QFHourModel *hourModel;
+            if (self.selectedDateIndex == 0) {//选中的今天
+                hourModel = self.dataSourceModel.todayHourArray[self.selectedHourIndex];
+            } else {
+                hourModel = self.dataSourceModel.hourArray[self.selectedHourIndex];
+            }
+        
+            QFMinuteModel *minModel;
+            if (self.selectedHourIndex == 0 && self.selectedDateIndex == 0) {//选中的今天的第一个小时
+                minModel = self.dataSourceModel.todayMinuteArray[self.selectedMinuteIndex];
+            } else {
+                minModel = self.dataSourceModel.minuteArray[self.selectedMinuteIndex];
+            }
             
-            QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
-            NSString *hour = hourModel.hourString;
-            
-            QFMinuteModel *minuteModel = self.minuteArray[self.selectedMinuteIndex];
-            NSString *min = minuteModel.minuteString;
-            
-            NSString *returnStr = [NSString stringWithFormat:@"%@ %@:%@",date,hour,min];
+            NSString *returnStr = [NSString stringWithFormat:@"%@ %@:%@",dateModel.dateString,hourModel.hourString,minModel.minuteString];
             self.returnBlock(returnStr);
         }
         [self dismiss];
@@ -173,13 +174,15 @@
 
 #pragma mark - Configration
 - (void)configDataSource {
-    self.dateArray = [QFTimerUtil dateArray];
-    self.hourArray = [QFTimerUtil hourArrayByToday:YES];
+//    self.dateArray = [QFTimerUtil dateArray];
+//    self.hourArray = [QFTimerUtil hourArrayByToday:YES];
+//
+//    QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
+//    NSString *hour = hourModel.hourString;
+//    self.minuteArray = [QFTimerUtil minuteArrayByToady:YES selectedHour:hour];
     
-    QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
-    NSString *hour = hourModel.hourString;
-    self.minuteArray = [QFTimerUtil minuteArrayByToady:YES selectedHour:hour];
-    
+    self.dataSourceModel = [QFTimerUtil configDataSource];
+
 }
 
 #pragma mark - UIPickerViewDataSource UIPickerViewDelegate
@@ -189,21 +192,43 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (component == 0) {
-        return self.dateArray.count;
+        return self.dataSourceModel.dateArray.count;
     } else if (component == 1) {
-        return self.hourArray.count;
+        if (self.selectedDateIndex == 0) {//选中的今天
+            return self.dataSourceModel.todayHourArray.count;
+        } else {
+            return self.dataSourceModel.hourArray.count;
+        }
     } else {
-        return self.minuteArray.count;
+        if (self.selectedHourIndex == 0 && self.selectedDateIndex == 0) {//选中的今天的第一个小时
+            return self.dataSourceModel.todayMinuteArray.count;
+        } else {
+            return self.dataSourceModel.minuteArray.count;
+        }
     }
+    
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (component == 0) {
-        return self.dateArray[row].showDateString;
+        QFDateModel *dateModel = self.dataSourceModel.dateArray[row];
+        return dateModel.showDateString;
     } else if (component == 1) {
-        return self.hourArray[row].showHourString;
+        QFHourModel *hourModel;
+        if (self.selectedDateIndex == 0) {//选中的今天
+            hourModel = self.dataSourceModel.todayHourArray[row];
+        } else {
+            hourModel = self.dataSourceModel.hourArray[row];
+        }
+        return hourModel.showHourString;
     } else {
-        return self.minuteArray[row].showMinuteString;
+        QFMinuteModel *minModel;
+        if (self.selectedHourIndex == 0 && self.selectedDateIndex == 0) {//选中的今天的第一个小时
+            minModel = self.dataSourceModel.todayMinuteArray[row];
+        } else {
+            minModel = self.dataSourceModel.minuteArray[row];
+        }
+        return minModel.showMinuteString;
     }
 }
 
@@ -218,35 +243,13 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
         self.selectedDateIndex = row;
-        
-        if (self.selectedDateIndex == 0) {//如果选中了今天，后面的时，分数据源要做变更
-            self.hourArray = [QFTimerUtil hourArrayByToday:YES];
-            self.selectedHourIndex = 0;
-            
-            QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
-            NSString *hour = hourModel.hourString;
-            self.minuteArray = [QFTimerUtil minuteArrayByToady:YES selectedHour:hour];
-        } else {
-            self.hourArray = [QFTimerUtil hourArrayByToday:NO];
-            self.selectedHourIndex = 0;
-            
-            QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
-            NSString *hour = hourModel.hourString;
-            self.minuteArray = [QFTimerUtil minuteArrayByToady:NO selectedHour:hour];
-        }
-        
+        self.selectedHourIndex = 0;
         self.selectedMinuteIndex = 0;
         [pickerView selectRow:0 inComponent:1 animated:YES];
         [pickerView selectRow:0 inComponent:2 animated:YES];
     } else if (component == 1) {
         self.selectedHourIndex = row;
-        QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
-        NSString *hour = hourModel.hourString;
-        if (self.selectedDateIndex == 0) {//如果选中了当前的小时，分数据源要做变更
-            self.minuteArray = [QFTimerUtil minuteArrayByToady:YES selectedHour:hour];
-        } else {
-            self.minuteArray = [QFTimerUtil minuteArrayByToady:NO selectedHour:hour];
-        }
+        self.selectedMinuteIndex = 0;
         [pickerView selectRow:0 inComponent:2 animated:YES];
     } else {
         self.selectedMinuteIndex = row;

@@ -19,9 +19,10 @@
 		BB3951861E288BDA000EBDD6 /* QFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3951851E288BDA000EBDD6 /* QFDatePickerView.m */; };
 		FD3907F221A29BB900A215CD /* QFTimerPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907E721A29BB900A215CD /* QFTimerPicker.m */; };
 		FD3907F321A29BB900A215CD /* QFTimerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907E921A29BB900A215CD /* QFTimerUtil.m */; };
-		FD3907F421A29BB900A215CD /* QFMinuteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907EF21A29BB900A215CD /* QFMinuteModel.m */; };
-		FD3907F521A29BB900A215CD /* QFHourModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907F021A29BB900A215CD /* QFHourModel.m */; };
-		FD3907F621A29BB900A215CD /* QFDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3907F121A29BB900A215CD /* QFDateModel.m */; };
+		FDE2217021A7982E0050521D /* QFTimerDataSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2216F21A7982E0050521D /* QFTimerDataSourceModel.m */; };
+		FDE2217721A79BD00050521D /* QFDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2217121A79BD00050521D /* QFDateModel.m */; };
+		FDE2217821A79BD00050521D /* QFMinuteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2217221A79BD00050521D /* QFMinuteModel.m */; };
+		FDE2217921A79BD00050521D /* QFHourModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2217621A79BD00050521D /* QFHourModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +67,14 @@
 		FD3907E721A29BB900A215CD /* QFTimerPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFTimerPicker.m; sourceTree = "<group>"; };
 		FD3907E921A29BB900A215CD /* QFTimerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFTimerUtil.m; sourceTree = "<group>"; };
 		FD3907EA21A29BB900A215CD /* QFTimerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFTimerUtil.h; sourceTree = "<group>"; };
-		FD3907EC21A29BB900A215CD /* QFDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFDateModel.h; sourceTree = "<group>"; };
-		FD3907ED21A29BB900A215CD /* QFHourModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFHourModel.h; sourceTree = "<group>"; };
-		FD3907EE21A29BB900A215CD /* QFMinuteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFMinuteModel.h; sourceTree = "<group>"; };
-		FD3907EF21A29BB900A215CD /* QFMinuteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFMinuteModel.m; sourceTree = "<group>"; };
-		FD3907F021A29BB900A215CD /* QFHourModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFHourModel.m; sourceTree = "<group>"; };
-		FD3907F121A29BB900A215CD /* QFDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFDateModel.m; sourceTree = "<group>"; };
+		FDE2216E21A7982E0050521D /* QFTimerDataSourceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QFTimerDataSourceModel.h; sourceTree = "<group>"; };
+		FDE2216F21A7982E0050521D /* QFTimerDataSourceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFTimerDataSourceModel.m; sourceTree = "<group>"; };
+		FDE2217121A79BD00050521D /* QFDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFDateModel.m; sourceTree = "<group>"; };
+		FDE2217221A79BD00050521D /* QFMinuteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFMinuteModel.m; sourceTree = "<group>"; };
+		FDE2217321A79BD00050521D /* QFHourModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFHourModel.h; sourceTree = "<group>"; };
+		FDE2217421A79BD00050521D /* QFDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFDateModel.h; sourceTree = "<group>"; };
+		FDE2217521A79BD00050521D /* QFMinuteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFMinuteModel.h; sourceTree = "<group>"; };
+		FDE2217621A79BD00050521D /* QFHourModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFHourModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,12 +216,14 @@
 		FD3907EB21A29BB900A215CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FD3907EC21A29BB900A215CD /* QFDateModel.h */,
-				FD3907ED21A29BB900A215CD /* QFHourModel.h */,
-				FD3907EE21A29BB900A215CD /* QFMinuteModel.h */,
-				FD3907EF21A29BB900A215CD /* QFMinuteModel.m */,
-				FD3907F021A29BB900A215CD /* QFHourModel.m */,
-				FD3907F121A29BB900A215CD /* QFDateModel.m */,
+				FDE2217421A79BD00050521D /* QFDateModel.h */,
+				FDE2217121A79BD00050521D /* QFDateModel.m */,
+				FDE2217321A79BD00050521D /* QFHourModel.h */,
+				FDE2217621A79BD00050521D /* QFHourModel.m */,
+				FDE2217521A79BD00050521D /* QFMinuteModel.h */,
+				FDE2217221A79BD00050521D /* QFMinuteModel.m */,
+				FDE2216E21A7982E0050521D /* QFTimerDataSourceModel.h */,
+				FDE2216F21A7982E0050521D /* QFTimerDataSourceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,12 +362,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				851DDD7E1FBA935F007C1E1F /* QFTimePickerView.m in Sources */,
+				FDE2217721A79BD00050521D /* QFDateModel.m in Sources */,
 				BB3951821E288BAB000EBDD6 /* ViewController.m in Sources */,
 				FD3907F221A29BB900A215CD /* QFTimerPicker.m in Sources */,
 				BB3951501E288B8E000EBDD6 /* AppDelegate.m in Sources */,
-				FD3907F621A29BB900A215CD /* QFDateModel.m in Sources */,
-				FD3907F521A29BB900A215CD /* QFHourModel.m in Sources */,
-				FD3907F421A29BB900A215CD /* QFMinuteModel.m in Sources */,
+				FDE2217021A7982E0050521D /* QFTimerDataSourceModel.m in Sources */,
+				FDE2217821A79BD00050521D /* QFMinuteModel.m in Sources */,
+				FDE2217921A79BD00050521D /* QFHourModel.m in Sources */,
 				FD3907F321A29BB900A215CD /* QFTimerUtil.m in Sources */,
 				BB39514D1E288B8E000EBDD6 /* main.m in Sources */,
 				BB3951861E288BDA000EBDD6 /* QFDatePickerView.m in Sources */,

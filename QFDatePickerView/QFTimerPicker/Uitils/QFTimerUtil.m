@@ -7,22 +7,124 @@
 //
 
 #import "QFTimerUtil.h"
+#import "QFTimerDataSourceModel.h"
 #import "QFDateModel.h"
-#import "QFMinuteModel.h"
 #import "QFHourModel.h"
+#import "QFMinuteModel.h"
 
 static NSDateFormatter *_dateFormatter;
+
+static NSInteger const kBenginTimeDely = 20;//数据源的开始时间是当前时间的kBenginTimeDely分钟 并且向上取整
+static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻度
 
 @implementation QFTimerUtil
 
 + (void)load {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        [_dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
     }
 }
 
 #pragma mark - Public
++ (QFTimerDataSourceModel *)configDataSource {
+    
+    QFTimerDataSourceModel *dataSourceModel = [QFTimerDataSourceModel new];
+    
+    NSMutableArray *dateArray = [NSMutableArray array];//日期数据源
+    
+    NSMutableArray *todayHourArray = [NSMutableArray array];//当天的小时数据源
+    NSMutableArray *todayMinuteArray = [NSMutableArray array];//当天的分钟数据源
+    
+    NSMutableArray *hourArray = [NSMutableArray array];//非当天的小时数据源
+    NSMutableArray *minuteArray = [NSMutableArray array];//非当天的分钟数据源
+    
+    NSString *beginTime = [self getTimerAfterCurrentTime:kBenginTimeDely];//开始时间（也就是当前时间20分钟后）
+    NSInteger currentMin = [self getMString:beginTime];
+    if (currentMin % kTimeInterval != 0) {
+        beginTime = [self getTimerAfterTime:beginTime periodMin:(kTimeInterval - currentMin % kTimeInterval)];//开始时间向上取整
+    }
+    
+    for (NSInteger i = 0; i < 3; i++) {
+        NSString *dateString = [self distanceDate:beginTime aDay:i];//获取第i天的日期
+        NSString *week = [self currentWeek:dateString type:NO];//获取星期几
+        
+        QFDateModel *model = [[QFDateModel alloc]init];
+        
+        model.dateString = dateString.length > 10 ? [dateString substringToIndex:10] : dateString;//实际日期
+        model.showDateString = [NSString stringWithFormat:@"%@ %@",[self getMDStringByString:dateString],week];//展示的日期
+        [dateArray addObject:model];
+    }
+    
+    NSInteger beginHour = [self getHString:beginTime];
+    for (NSInteger i = beginHour; i < 24 ; i++) {
+        QFHourModel *model = [[QFHourModel alloc]init];
+        if (i < 10) {
+            model.hourString = [NSString stringWithFormat:@"0%ld",i];
+            model.showHourString = [NSString stringWithFormat:@"%ld点",i];
+        } else {
+            model.hourString = [NSString stringWithFormat:@"%ld",i];
+            model.showHourString = [NSString stringWithFormat:@"%ld点",i];
+        }
+        [todayHourArray addObject:model];
+    }
+
+    for (NSInteger i = 0; i < 24 ; i++) {
+        QFHourModel *model = [[QFHourModel alloc]init];
+        if (i < 10) {
+            model.hourString = [NSString stringWithFormat:@"0%ld",i];
+            model.showHourString = [NSString stringWithFormat:@"%ld点",i];
+        } else {
+            model.hourString = [NSString stringWithFormat:@"%ld",i];
+            model.showHourString = [NSString stringWithFormat:@"%ld点",i];
+        }
+        [hourArray addObject:model];
+    }
+
+    
+    NSInteger beginMin = [self getMString:beginTime];
+    NSInteger minStart = beginMin / kTimeInterval;
+    
+    for (NSInteger i = minStart; i < 60 / kTimeInterval; i++) {
+        QFMinuteModel *model = [[QFMinuteModel alloc]init];
+        if (i * kTimeInterval < 10) {
+            model.minuteString = [NSString stringWithFormat:@"0%ld",(long)i * kTimeInterval];
+            model.showMinuteString = [NSString stringWithFormat:@"0%ld分",(long)i * kTimeInterval];
+        } else {
+            model.minuteString = [NSString stringWithFormat:@"%ld",i * kTimeInterval];
+            model.showMinuteString = [NSString stringWithFormat:@"%ld分",i * kTimeInterval];
+        }
+        
+        [todayMinuteArray addObject:model];
+    }
+    
+    for (NSInteger i = 0; i <  60 / kTimeInterval; i++) {
+        QFMinuteModel *model = [[QFMinuteModel alloc]init];
+        if (i * kTimeInterval< 10) {
+            model.minuteString = [NSString stringWithFormat:@"0%ld",(long)i * kTimeInterval];
+            model.showMinuteString = [NSString stringWithFormat:@"0%ld分",(long)i * kTimeInterval];
+        } else {
+            model.minuteString = [NSString stringWithFormat:@"%ld",i * kTimeInterval];
+            model.showMinuteString = [NSString stringWithFormat:@"%ld分",i * kTimeInterval];
+        }
+        
+        [minuteArray addObject:model];
+    }
+
+    
+    dataSourceModel.dateArray = dateArray;
+    
+    dataSourceModel.hourArray = hourArray;
+    dataSourceModel.minuteArray = minuteArray;
+    
+    dataSourceModel.todayHourArray = todayHourArray;
+    dataSourceModel.todayMinuteArray = todayMinuteArray;
+    
+    return dataSourceModel;
+}
+
+
+
 + (NSMutableArray *)dateArray {
     
     NSMutableArray *dateArray = [NSMutableArray array];
@@ -125,7 +227,7 @@ static NSDateFormatter *_dateFormatter;
     
     //获取当前时间，日期
     NSDate *currentDate = [NSDate date];
-    [_dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    [_dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
     NSString *dateString = [_dateFormatter stringFromDate:currentDate];
     
     return dateString;
@@ -262,4 +364,27 @@ static NSDateFormatter *_dateFormatter;
         return 0;
     }
 }
+/**
+ 获取当前时间X分钟后的时间
+ 
+ @param periodMin 需要的是多少分钟后的时间
+ @return 当前时间X分钟之后的时间字符串
+ */
++ (NSString *)getTimerAfterCurrentTime:(NSInteger)periodMin {
+    NSString *resultStr = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:periodMin * 60]];
+    return resultStr;
+}
+
+/**
+ 获取指定时间X分钟后的时间
+ 
+ @param periodMin 需要的是多少分钟后的时间
+ @return 指定时间X分钟后的时间字符串
+ */
++ (NSString *)getTimerAfterTime:(NSString *)time periodMin:(NSInteger)periodMin {
+    NSDate *date = [_dateFormatter dateFromString:time];
+    NSString *resultStr = [_dateFormatter stringFromDate:[date initWithTimeInterval:periodMin*60 sinceDate:date]];
+    return resultStr;
+}
+
 @end
