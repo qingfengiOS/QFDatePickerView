@@ -32,10 +32,8 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
     QFTimerDataSourceModel *dataSourceModel = [QFTimerDataSourceModel new];
     
     NSMutableArray *dateArray = [NSMutableArray array];//日期数据源
-    
     NSMutableArray *todayHourArray = [NSMutableArray array];//当天的小时数据源
     NSMutableArray *todayMinuteArray = [NSMutableArray array];//当天的分钟数据源
-    
     NSMutableArray *hourArray = [NSMutableArray array];//非当天的小时数据源
     NSMutableArray *minuteArray = [NSMutableArray array];//非当天的分钟数据源
     
@@ -80,7 +78,6 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
         }
         [hourArray addObject:model];
     }
-
     
     NSInteger beginMin = [self getMString:beginTime];
     NSInteger minStart = beginMin / kTimeInterval;
@@ -111,7 +108,6 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
         [minuteArray addObject:model];
     }
 
-    
     dataSourceModel.dateArray = dateArray;
     
     dataSourceModel.hourArray = hourArray;
@@ -121,104 +117,6 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
     dataSourceModel.todayMinuteArray = todayMinuteArray;
     
     return dataSourceModel;
-}
-
-
-
-+ (NSMutableArray *)dateArray {
-    
-    NSMutableArray *dateArray = [NSMutableArray array];
-    NSString *currentDateString = [self getCurrentDateStr];
-    
-    for (NSInteger i = 0; i < 3; i++) {
-        NSString *dateString = [self distanceDate:currentDateString aDay:i];//获取第i天的日期
-        NSString *week = [self currentWeek:dateString type:NO];//获取星期几
-        
-        QFDateModel *model = [[QFDateModel alloc]init];
-        model.dateString = dateString;//实际日期
-        model.showDateString = [NSString stringWithFormat:@"%@ %@",[self getMDStringByString:dateString],week];//展示的日期
-        
-        [dateArray addObject:model];
-    }
-    return dateArray;
-}
-
-+ (NSMutableArray *)hourArrayByToday:(BOOL)isToday {
-    NSMutableArray *hourArray = [NSMutableArray array];
-    
-    NSInteger star = 0;//不是今天，数据源从0~23
-    //如果是今天，数据源从当前时间之后开始
-    if (isToday) {
-        NSString *currentDateString = [self getCurrentDateStr];
-        
-        NSInteger currentHour = [self getHString:currentDateString];
-        NSInteger currentMin = [self getMString:currentDateString];
-        
-        if (currentMin >= 40) {
-            star = currentHour + 1;
-        } else {
-            star = currentHour;
-        }
-    }
-    for (NSInteger i = star; i < 24 ; i++) {
-        QFHourModel *model = [[QFHourModel alloc]init];
-        if (i < 10) {
-            model.hourString = [NSString stringWithFormat:@"0%ld",i];
-            model.showHourString = [NSString stringWithFormat:@"%ld点",i];
-        } else {
-            model.hourString = [NSString stringWithFormat:@"%ld",i];
-            model.showHourString = [NSString stringWithFormat:@"%ld点",i];
-        }
-        [hourArray addObject:model];
-    }
-    
-    return hourArray;
-}
-
-+ (NSMutableArray *)minuteArrayByToady:(BOOL)isToday selectedHour:(NSString *)selectedHour {
-    
-    NSMutableArray *minuteArray = [NSMutableArray array];
-    NSString *currentDateString = [self getCurrentDateStr];
-    NSInteger currentHour = [self getHString:currentDateString];
-    
-    BOOL isCurrentHour = NO;
-    NSInteger hour = [[selectedHour substringToIndex:2] integerValue];
-    if (hour == currentHour) {
-        isCurrentHour = YES;
-    }
-    NSInteger star = 0;//不是今天或者不是今天的当前小时，数据源从0~50分
-    if (isToday && isCurrentHour) {//如果今天且在当前小时，那么数据源从当前时间20分之后开始
-        NSInteger currentMin = [self getMString:currentDateString];
-        
-        if (currentMin > 30 && currentMin <= 40) {//当前30分之后了 数据从0->50可选
-            star = 0;
-        } else if (currentMin > 40 && currentMin <= 50) {//当前40分之后了 数据从10->50可选
-            star = 1;
-        } else if (currentMin > 50) {//当前50分之后了 数据从20->50可选
-            star = 2;
-        } else {
-            if (currentMin % 10 == 0) {//整10的分钟数 比如：10 20 30...
-                star = currentMin / 10 + 2;
-            } else {
-                star = currentMin / 10 + 1 + 2;
-            }
-        }
-    }
-    
-    for (NSInteger i = star; i < 6; i++) {
-        QFMinuteModel *model = [[QFMinuteModel alloc]init];
-        if (i == 0) {
-            model.minuteString = @"00";
-            model.showMinuteString = @"00分";
-        } else {
-            model.minuteString = [NSString stringWithFormat:@"%ld",i * 10];
-            model.showMinuteString = [NSString stringWithFormat:@"%ld分",i * 10];
-        }
-        
-        [minuteArray addObject:model];
-    }
-    
-    return minuteArray;
 }
 
 #pragma mark - Private

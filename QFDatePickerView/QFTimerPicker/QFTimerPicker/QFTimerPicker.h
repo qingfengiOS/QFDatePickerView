@@ -34,7 +34,6 @@ typedef void(^ReturnBlock)(NSString *selectedStr);
  */
 - (void)show ;
 
-
 /**
  pickerView 消失
  */

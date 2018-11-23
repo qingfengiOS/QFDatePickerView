@@ -42,6 +42,7 @@
 #pragma mark - Life Cycle
 - (instancetype)initWithResponse:(ReturnBlock)block {
     if (self = [super init]) {
+        [self initDataSource];
         [self initAppreaence];
         
     }
@@ -51,6 +52,7 @@
 
 - (instancetype)initWithSuperView:(UIView *)superView response:(ReturnBlock)block {
     if (self = [super init]) {
+        [self initDataSource];
         [self initAppreaence];
     }
     self.returnBlock = block;
@@ -63,6 +65,8 @@
     self.selectedDateIndex = 0;
     self.selectedHourIndex = 0;
     self.selectedMinuteIndex = 0;
+    
+    self.dataSourceModel = [QFTimerUtil configDataSource];
 }
 
 #pragma mark - InitAppreaence
@@ -121,8 +125,7 @@
 
 #pragma mark - Public
 - (void)show {//pickerView出现
-    [self configDataSource];
-    
+
     if (self.superView) {
         [self.superView addSubview:self];
     } else {
@@ -170,19 +173,6 @@
         }
         [self dismiss];
     }
-}
-
-#pragma mark - Configration
-- (void)configDataSource {
-//    self.dateArray = [QFTimerUtil dateArray];
-//    self.hourArray = [QFTimerUtil hourArrayByToday:YES];
-//
-//    QFHourModel *hourModel = self.hourArray[self.selectedHourIndex];
-//    NSString *hour = hourModel.hourString;
-//    self.minuteArray = [QFTimerUtil minuteArrayByToady:YES selectedHour:hour];
-    
-    self.dataSourceModel = [QFTimerUtil configDataSource];
-
 }
 
 #pragma mark - UIPickerViewDataSource UIPickerViewDelegate
