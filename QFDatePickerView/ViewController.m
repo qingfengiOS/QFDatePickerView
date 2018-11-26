@@ -24,7 +24,8 @@
 }
 
 - (IBAction)showYearSelectView:(id)sender {
-    QFDatePickerView *datePickerView = [[QFDatePickerView alloc]initYearPickerViewWithResponse:^(NSString *str) {
+    
+    QFDatePickerView *datePickerView = [[QFDatePickerView alloc]initYearPickerWithView:self.view response:^(NSString *str) {
         NSString *string = str;
         NSLog(@"str = %@",string);
     }];
@@ -33,7 +34,7 @@
 
 - (IBAction)showDatePickerView:(id)sender {
     
-    QFDatePickerView *datePickerView = [[QFDatePickerView alloc]initDatePackerWithResponse:^(NSString *str) {
+    QFDatePickerView *datePickerView = [[QFDatePickerView alloc]initDatePackerWithSUperView:self.view response:^(NSString *str) {
         NSString *string = str;
         NSLog(@"str = %@",string);
     }];

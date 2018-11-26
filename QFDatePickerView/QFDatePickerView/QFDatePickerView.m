@@ -23,6 +23,8 @@
     NSString *selectecMonth;
     
     BOOL onlySelectYear;
+    
+    UIView *superView;
 }
 
 
@@ -50,6 +52,26 @@
 }
 
 /**
+ 初始化方法，只带年月的日期选择
+ 
+ @param superView picker的载体View
+ @param block 返回选中的日期
+ @return QFDatePickerView对象
+ */
+- (instancetype)initDatePackerWithSUperView:(UIView *)superView response:(void(^)(NSString*))block {
+    if (self = [super init]) {
+        self.frame = [UIScreen mainScreen].bounds;
+    }
+    [self setViewInterface];
+    if (block) {
+        backBlock = block;
+    }
+    superView = superView;
+    onlySelectYear = NO;
+    return self;
+}
+
+/**
  初始化方法，只带年份的日期选择
  
  @param block 返回选中的年份
@@ -63,6 +85,25 @@
     if (block) {
         backBlock = block;
     }
+    onlySelectYear = YES;
+    return self;
+}
+
+/**
+ 初始化方法，只带年份的日期选择
+ 
+ @param block 返回选中的年份
+ @return QFDatePickerView对象
+ */
+- (instancetype)initYearPickerWithView:(UIView *)superView response:(void(^)(NSString*))block {
+    if (self = [super init]) {
+        self.frame = [UIScreen mainScreen].bounds;
+    }
+    [self setViewInterface];
+    if (block) {
+        backBlock = block;
+    }
+    superView = superView;
     onlySelectYear = YES;
     return self;
 }
@@ -141,7 +182,7 @@
     //初始化月数据源数组
     monthArray = [[NSMutableArray alloc]init];
     
-    if ([[selectedYear substringWithRange:NSMakeRange(0, 4)] isEqualToString:[NSString stringWithFormat:@"%ld",currentYear]]) {
+    if ([[selectedYear substringWithRange:NSMakeRange(0, 4)] isEqualToString:[NSString stringWithFormat:@"%ld",(long)currentYear]]) {
         for (NSInteger i = 1 ; i <= currentMonth; i++) {
             NSString *monthStr = [NSString stringWithFormat:@"%ld月",(long)i];
             [monthArray addObject:monthStr];
@@ -178,7 +219,11 @@
 
 #pragma mark - pickerView出现
 - (void)show {
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    if (superView) {
+        [superView addSubview:self];
+    } else {
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
+    }
     [UIView animateWithDuration:0.4 animations:^{
         contentView.center = CGPointMake(self.frame.size.width/2, contentView.center.y - contentView.frame.size.height);
     }];
