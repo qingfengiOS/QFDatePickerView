@@ -36,7 +36,8 @@ QFDatePickerView *datePickerView = [[QFDatePickerView alloc]initYearPickerWithVi
 选中的时间在block中处理，其他调用类似，相信睿智的您一眼就能看明白。  
 这篇主要是对一年前的文章做一次整理（之前的确实有点辣眼睛），希望看到的朋友轻喷。   
 
+最后，希望各位大神指点，如果对您有用的话请顺手给个star
 [演示Demo](https://github.com/qingfengiOS/QFDatePickerView)  
 [cocoaPods安装](https://github.com/qingfengiOS/QFDatePicker)
  
-最后，希望各位大神指点，如果对您有用的话请顺手给个star
+
