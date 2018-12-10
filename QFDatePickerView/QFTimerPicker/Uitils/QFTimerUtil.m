@@ -126,7 +126,7 @@ static NSInteger const kDays = 3;//从今天起能选择多少天 默认3天
 + (NSString *)getTomorrowDay:(NSDate *)aDate {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorian components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:aDate];
-    [components setDay:([components day]+1)];
+    [components setDay:[components day]];
     NSDate *beginningOfWeek = [gregorian dateFromComponents:components];
     [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     return [_dateFormatter stringFromDate:beginningOfWeek];
