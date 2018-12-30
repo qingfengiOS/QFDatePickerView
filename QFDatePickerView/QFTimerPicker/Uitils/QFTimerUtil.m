@@ -16,13 +16,13 @@ static NSDateFormatter *_dateFormatter;
 
 static NSInteger const kBenginTimeDely = 20;//数据源的开始时间是当前时间的kBenginTimeDely分钟 并且向上取整
 static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻度
+static NSInteger const kDays = 3;//从今天起能选择多少天 默认3天
 
 @implementation QFTimerUtil
 
 + (void)load {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
     }
 }
 
@@ -42,17 +42,20 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
     if (currentMin % kTimeInterval != 0) {
         beginTime = [self getTimerAfterTime:beginTime periodMin:(kTimeInterval - currentMin % kTimeInterval)];//开始时间向上取整
     }
-    
-    for (NSInteger i = 0; i < 3; i++) {
-        NSString *dateString = [self distanceDate:beginTime aDay:i];//获取第i天的日期
-        NSString *week = [self currentWeek:dateString type:NO];//获取星期几
+    NSDate *currentDate = [NSDate date];
+    NSDate *appointDate;
+    NSTimeInterval oneDay = 24 * 60 * 60;
+    for (int i = 0; i < kDays; i++) {
+        appointDate = [currentDate initWithTimeIntervalSinceNow: oneDay * i];
+        NSString *nextDateStr = [self getTomorrowDay:appointDate];
+        NSString *week = [self currentWeek:nextDateStr type:NO];//获取星期几
         
         QFDateModel *model = [[QFDateModel alloc]init];
-        
-        model.dateString = dateString.length > 10 ? [dateString substringToIndex:10] : dateString;//实际日期
-        model.showDateString = [NSString stringWithFormat:@"%@ %@",[self getMDStringByString:dateString],week];//展示的日期
+        model.dateString = nextDateStr.length > 10 ? [nextDateStr substringToIndex:10] : nextDateStr;//实际日期
+        model.showDateString = [NSString stringWithFormat:@"%@ %@",[self getMDStringByString:nextDateStr],week];//展示的日期
         [dateArray addObject:model];
     }
+    
     
     NSInteger beginHour = [self getHString:beginTime];
     for (NSInteger i = beginHour; i < 24 ; i++) {
@@ -120,12 +123,20 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
 }
 
 #pragma mark - Private
++ (NSString *)getTomorrowDay:(NSDate *)aDate {
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorian components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:aDate];
+    [components setDay:([components day]+1)];
+    NSDate *beginningOfWeek = [gregorian dateFromComponents:components];
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [_dateFormatter stringFromDate:beginningOfWeek];
+}
 ///得到当前日期
 + (NSString *)getCurrentDateStr {
     
     //获取当前时间，日期
     NSDate *currentDate = [NSDate date];
-    [_dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *dateString = [_dateFormatter stringFromDate:currentDate];
     
     return dateString;
@@ -138,6 +149,7 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
  @return NSDate
  */
 + (NSDate *)stringToDate:(NSString *)string {
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *date = [_dateFormatter dateFromString:string];
     return date;
 }
@@ -149,6 +161,7 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
  @return yyyy-MM-dd
  */
 + (NSString *)dateToString:(NSDate *)date {
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *strDate = [_dateFormatter stringFromDate:date];
     return strDate;
 }
@@ -269,6 +282,7 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
  @return 当前时间X分钟之后的时间字符串
  */
 + (NSString *)getTimerAfterCurrentTime:(NSInteger)periodMin {
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *resultStr = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:periodMin * 60]];
     return resultStr;
 }
@@ -280,6 +294,7 @@ static NSInteger const kTimeInterval = 10;//时间间隔 默认10分钟一个刻
  @return 指定时间X分钟后的时间字符串
  */
 + (NSString *)getTimerAfterTime:(NSString *)time periodMin:(NSInteger)periodMin {
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSDate *date = [_dateFormatter dateFromString:time];
     NSString *resultStr = [_dateFormatter stringFromDate:[date initWithTimeInterval:periodMin*60 sinceDate:date]];
     return resultStr;
